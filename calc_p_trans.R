@@ -24,33 +24,28 @@ expect_equal(5, length(args))
 filename <- args[1]
 protein_sequence <- args[2]
 mhc_haplotype <- args[3]
-n_adjancent_sequences <- as.numeric(args[4])
-percentile <- as.numeric(args[5])
+percentile <- as.numeric(args[4])
 
 message("filename: ", filename)
 message("protein_sequence: ", protein_sequence)
 message("mhc_haplotype: ", mhc_haplotype)
-message("n_adjancent_sequences: ", n_adjancent_sequences)
 message("percentile: ", percentile)
 
 expect_true(is.character(filename))
 expect_true(bbbq::is_peptide(protein_sequence))
 expect_true(mhc_haplotype %in% bbbq::get_mhc_haplotypes())
-expect_true(is.numeric(n_adjancent_sequences))
 expect_true(is.numeric(percentile))
 
 
 p <- bbbq::calc_p_det_tmh_mut(
   protein_sequence = protein_sequence,
   mhc_haplotype = mhc_haplotype,
-  n_adjancent_sequences = n_adjancent_sequences,
   percentile = percentile
 )
 
 t <- tibble::tibble(
   protein_sequence = protein_sequence,
   mhc_haplotype = mhc_haplotype,
-  n_adjancent_sequences = n_adjancent_sequences,
   percentile = percentile,
   p = p
 )
