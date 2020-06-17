@@ -20,7 +20,7 @@ library(testthat)
 
 args <- commandArgs(trailingOnly = TRUE)
 
-expect_equal(5, length(args))
+expect_equal(4, length(args))
 filename <- args[1]
 protein_sequence <- args[2]
 mhc_haplotype <- args[3]
