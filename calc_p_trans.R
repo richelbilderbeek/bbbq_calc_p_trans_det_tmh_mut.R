@@ -24,8 +24,8 @@ expect_equal(5, length(args))
 filename <- args[1]
 protein_sequence <- args[2]
 mhc_haplotype <- args[3]
-n_adjancent_sequences <- args[4]
-percentile <- args[5]
+n_adjancent_sequences <- as.numeric(args[4])
+percentile <- as.numeric(args[5])
 
 message("filename: ", filename)
 message("protein_sequence: ", protein_sequence)

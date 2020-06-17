@@ -13,5 +13,6 @@ for (peptide_index in seq_len(n_peptides)) {
     filename <- paste0(i, ".csv")
     cmds <- c("Rscript", "calc_p_trans.R", filename, protein_sequence, mhc_haplotype, n_adjancent_sequences, percentile)
     system2(cmds[1], cmds[-1])
+    i <- i + 1
   }
 }
