@@ -12,6 +12,11 @@ for (peptide_index in seq_len(n_peptides)) {
   for (mhc_haplotype in mhc_haplotypes) {
     filename <- paste0(i, ".csv")
     cmds <- c("Rscript", "calc_p_trans.R", filename, protein_sequence, mhc_haplotype, n_adjancent_sequences, percentile)
+
+    if (peregrine::is_on_peregrine()) {
+      cmds <- c("sbatch", cmds)
+    }
+
     system2(cmds[1], cmds[-1])
     i <- i + 1
   }
