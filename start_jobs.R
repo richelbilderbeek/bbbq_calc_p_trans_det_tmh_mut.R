@@ -1,6 +1,6 @@
 peptide_size <- 30
-n_peptides <- 10
-percentile <- 0.1
+n_peptides <- 20
+percentile <- 0.05
 mhc_haplotypes <- bbbq::get_mhc_haplotypes()
 
 i <- 1
