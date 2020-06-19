@@ -41,3 +41,4 @@ vignettes/*.pdf
 results/
 results_0_1/
 *.png
+*.log
