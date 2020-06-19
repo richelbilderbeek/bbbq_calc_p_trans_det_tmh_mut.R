@@ -24,9 +24,18 @@ for (i in seq_len(n_files)) {
 }
 
 
-readr::write_csv(t, "p_trans.csv")
+readr::write_csv(t, "p_trans_p_0_05.csv")
 p_trans <- mean(t$p)
+min(t$p)
+mean(t$p)
 max(t$p)
+
+library(dplyr)
+
+readr::write_csv(
+  t %>% group_by(mhc_haplotype) %>% summarise(max(p)),
+  "p_trans_p_0_05_max.csv"
+)
 
 n_peptides <- length(unique(t$protein_sequence))
 percentile <- t$percentile
@@ -37,4 +46,4 @@ ggplot2::ggplot(t, aes(x = mhc_haplotype, y = p)) +
     caption = glue::glue(
       "Number of peptides: {n_peptides}, percentile: {percentile}, average: {p_trans}"
     )
-  ) + ggsave("p_trans.png", width = 7, height = 7)
+  ) + ggsave("p_trans_0_05.png", width = 7, height = 7)

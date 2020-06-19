@@ -39,3 +39,5 @@ vignettes/*.pdf
 .Renviron
 *.csv
 results/
+results_0_1/
+*.png
